@@ -1,10 +1,15 @@
 from flask import Flask, render_template_string, request
 import openai
+from dotenv import load_dotenv
+import os
 
 app = Flask(__name__)
 
+# Load .env file
+load_dotenv()
+
 # Replace 'your-openai-api-key' with your actual OpenAI API key
-openai.api_key = 'api-key'
+openai.api_key = os.getenv("CHATGPT_API_KEY")
 
 HTML = '''
 <!doctype html>
